@@ -55,7 +55,7 @@ class Command(BaseCommand):
             filename = os.path.join(tempfile.gettempdir(),
                                     'django_cron.%s.%s' % (LOCK, script))
             try:
-                fd = os.open(filename, os.O_CREAT|os.O_EXCL)
+                fd = os.open(filename, os.O_CREAT|os.O_EXCL, 0644)
 
                 def register():
                     os.close(fd)
